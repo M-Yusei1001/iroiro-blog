@@ -9,10 +9,13 @@ jobs:
     container:
       image: mcr.microsoft.com/devcontainers/typescript-node:1-22-bookworm
     steps:
-      - name: Setup project
-        run: |
-          cd my-app
-          npm ci
+      - name: Move Directory
+        run: cd ./my-app
 
-      - name: Lint
-        run: npx @biomejs/biome check --write ./app
+      - name: Setup Biome CLI
+        uses: biomejs/setup-biome@v2
+        with:
+          version: latest
+      
+      - name: Run Biome
+        run: biome ci
