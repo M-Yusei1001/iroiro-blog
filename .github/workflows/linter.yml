@@ -11,10 +11,9 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
-      - name: Setup Biome CLI
-        uses: biomejs/setup-biome@v2
-        with:
-          version: latest
-          working-dir: ./my-app
-      - name: Run Biome
+      - name: Move directory
+        run: cd ./my-app
+      - name: Setup biome
+        run: npm clean-install
+      - name: Run biome
         run: npx @biomejs/biome check --write ./app
