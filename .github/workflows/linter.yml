@@ -1,0 +1,18 @@
+name: Linter
+
+on:
+  push:
+  
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    container:
+      image: mcr.microsoft.com/devcontainers/typescript-node:1-22-bookworm
+    steps:
+      - name: Setup project
+        run: |
+          cd my-app
+          npm ci
+
+      - name: Lint
+        run: npx @biomejs/biome check --write ./app
