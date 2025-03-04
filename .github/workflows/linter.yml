@@ -9,9 +9,6 @@ jobs:
     container:
       image: mcr.microsoft.com/devcontainers/typescript-node:1-22-bookworm
     steps:
-      - name: Move Directory
-        run: cd ./my-app
-
       - name: Setup Biome CLI
         uses: biomejs/setup-biome@v2
         with:
