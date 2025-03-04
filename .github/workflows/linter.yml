@@ -9,6 +9,8 @@ jobs:
     container:
       image: mcr.microsoft.com/devcontainers/typescript-node:1-22-bookworm
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
       - name: Setup Biome CLI
         uses: biomejs/setup-biome@v2
         with:
